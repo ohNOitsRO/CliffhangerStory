@@ -30,8 +30,8 @@ const typeDefs = gql`
     me: Profile
 
     myStories(email: String!): [Story]
-    otherStories: [story]
-    uniqueContributions(email: String!): [story]
+    otherStories: [Story]
+    uniqueContributions(email: String!): [Story]
   }
 
   type Mutation {
