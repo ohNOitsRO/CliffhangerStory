@@ -14,7 +14,7 @@ const typeDefs = gql`
     title: String!
     userEmail: String!
     content: String!
-    date: date
+    date: Int
     contributors: [ID]
   }
 
