@@ -26,9 +26,9 @@ const Home = () => {
   const navItems = ['Login', 'Sign Up'];
 
 const stories = [
-  {title: "my epic story 1", summary: "suddenly words started to rain in the forrest"},
-  {title: "my sci-fi story 1", summary: "suddenly words started to rain in space"},
-  {title: "my comedy 1", summary: "suddenly words started to rain at the doctors"}
+  {title: "Toy Story", summary: "Tom Hanks fights Tim Allen"},
+  {title: "Toy Story 2", summary: "The Sequel Fight"},
+  {title: "Toy Story: Rocket Power", summary: "SHOOBIES"}
 ]
 
 const loadAuthpage = (event) => {

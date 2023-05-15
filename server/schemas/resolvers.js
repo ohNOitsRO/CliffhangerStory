@@ -88,6 +88,27 @@ const resolvers = {
       // If user attempts to execute this mutation and isn't logged in, throw an error
       throw new AuthenticationError('You need to be logged in!');
     },
+
+    addStory: async (parent, args, context) => {
+      if (context.user) {
+        return Story.create(
+          {
+            author_id: args._id,
+            content: args.content,
+            title: args.title,
+          },         
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+
+
+
+
+    }},
+
+
     // Set up mutation so a logged in user can only remove their profile and no one else's
     removeProfile: async (parent, args, context) => {
       if (context.user) {
