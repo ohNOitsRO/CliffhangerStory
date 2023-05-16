@@ -22,13 +22,17 @@ const storySchema = new Schema({
   date: {
     type: Date,
     default: Date.now,
+    get: (date)=> date.toLocaleDateString(),
     required: true,
     minlength: 5
   },
   contributors: [{
     type: Schema.Types.ObjectId, 
     ref:"Profile"
-  }]
+  }],
+  is_deleted: {
+    type: Boolean
+  }
 
 
 

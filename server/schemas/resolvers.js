@@ -18,7 +18,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    myStories: async (parent, { email }) => {
+    myStories: async (parent, { email }, context) => {
       if (context.user) {
       return Story.find({
         where: {
@@ -89,22 +89,16 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    addStory: async (parent, args, context) => {
+    addStory: async (parent, { author_id, content, title}, context) => {
+      console.log(author_id, content, title);
       if (context.user) {
         return Story.create(
           {
-            author_id: args._id,
-            content: args.content,
-            title: args.title,
-          },         
-          {
-            new: true,
-            runValidators: true,
+            author_id: author_id,
+            content: content,
+            title: title,
           }
         );
-
-
-
 
     }},
 

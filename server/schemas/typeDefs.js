@@ -10,12 +10,12 @@ const typeDefs = gql`
   }
 
   type Story {
-    _id: ID
+    author_id: ID
     title: String!
-    userEmail: String!
     content: String!
-    date: Int
+    date: String!
     contributors: [ID]
+    is_deleted: Boolean!
   }
 
   type Auth {
@@ -41,6 +41,8 @@ const typeDefs = gql`
     addSkill(profileId: ID!, skill: String!): Profile
     removeProfile: Profile
     removeSkill(skill: String!): Profile
+
+    addStory(author_id: ID!, content: String!, title: String!): Profile
   }
 `;
 
