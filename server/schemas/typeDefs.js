@@ -42,7 +42,7 @@ const typeDefs = gql`
     removeProfile: Profile
     removeSkill(skill: String!): Profile
 
-    addStory(author_id: ID!, content: String!, title: String!, story_type: String!): Profile
+    addStory(author_id: ID!, content: String!, title: String!, story_type: String): Story
   }
 `;
 
