@@ -25,7 +25,8 @@ const contSchema = new Schema({
     },
     created_on: {
         type: Date,
-        default: Date.now 
+        default: Date.now,
+        get: (date)=> date.toLocaleDateString(),
         
     },
     is_deleted: {

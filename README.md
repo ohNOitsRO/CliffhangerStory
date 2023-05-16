@@ -7,8 +7,21 @@ npm run develop -->
 6462c3c23481f4b55b3393c7 -->
 
 <!-- 5/15
-With Tim, worked on Contianuation model 
+With Tim, created Continuation model with fields
+fixed schemas to properly match resolvers, typedefs
+fixed date issue (properly displaying now)
+-
 -->
+
+<!-- NEXT UP:
+Add onhandle submit logic to take in data and create user stories
+add conditions to stories (readonly, open, private)
+repurpose removeSkill to removeStory
+add archive for deleted/hidden stories
+
+-->
+
+
 
 
 
