@@ -70,14 +70,15 @@ const resolvers = {
       return { token, profile };
     },
 
-    addStory: async (parent, { author_id, content, title}, context) => {
-      console.log(author_id, content, title);
+    addStory: async (parent, { author_id, content, title, story_type}, context) => {
+      console.log(author_id, content, title, story_type);
       if (context.user) {
         return Story.create(
           {
             author_id: author_id,
             content: content,
             title: title,
+            story_type: story_type
           }
         );
 

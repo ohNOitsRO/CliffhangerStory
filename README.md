@@ -16,6 +16,7 @@ fixed date issue (properly displaying now)
 <!-- NEXT UP:
 Add onhandle submit logic to take in data and create user stories
 add conditions to stories (readonly, open, private)
+  ***FIX story_type returning NULL***
 repurpose removeSkill to removeStory
 add archive for deleted/hidden stories
 

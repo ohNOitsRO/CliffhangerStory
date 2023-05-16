@@ -32,6 +32,11 @@ const storySchema = new Schema({
   }],
   is_deleted: {
     type: Boolean
+  },
+  story_type: {
+    type: String,
+    required: true,
+
   }
 
 
