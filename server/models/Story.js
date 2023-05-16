@@ -5,31 +5,39 @@ const storySchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    trim: true,
+    trim: true
   },
 
 //   Email is unique identifier //
-  user_email: {
-    type: String,
+  author_id: {
+    type: Schema.Types.ObjectId,
     required: true,
-    unique: true,
-    match: [/.+@.+\..+/, 'Must match an email address!'],
+    ref:"Profile"
   },
   content: {
     type: String,
     required: true,
-    minlength: 5,
+    minlength: 5
   },
   date: {
     type: Date,
     default: Date.now,
+    get: (date)=> date.toLocaleDateString(),
     required: true,
-    minlength: 5,
+    minlength: 5
   },
   contributors: [{
     type: Schema.Types.ObjectId, 
     ref:"Profile"
-  }]
+  }],
+  is_deleted: {
+    type: Boolean
+  },
+  story_type: {
+    type: String,
+    required: true,
+
+  }
 
 
 

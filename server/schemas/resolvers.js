@@ -18,7 +18,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    myStories: async (parent, { email }) => {
+    myStories: async (parent, { email }, context) => {
       if (context.user) {
       return Story.find({
         where: {
@@ -70,24 +70,21 @@ const resolvers = {
       return { token, profile };
     },
 
-    // Add a third argument to the resolver to access data in our `context`
-    addSkill: async (parent, { profileId, skill }, context) => {
-      // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
+    addStory: async (parent, { author_id, content, title, story_type}, context) => {
+      console.log(author_id, content, title, story_type);
       if (context.user) {
-        return Profile.findOneAndUpdate(
-          { _id: profileId },
+        return Story.create(
           {
-            $addToSet: { skills: skill },
-          },
-          {
-            new: true,
-            runValidators: true,
+            author_id: author_id,
+            content: content,
+            title: title,
+            story_type: story_type
           }
         );
-      }
-      // If user attempts to execute this mutation and isn't logged in, throw an error
-      throw new AuthenticationError('You need to be logged in!');
-    },
+
+    }},
+
+
     // Set up mutation so a logged in user can only remove their profile and no one else's
     removeProfile: async (parent, args, context) => {
       if (context.user) {
