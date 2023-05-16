@@ -75,10 +75,10 @@ const resolvers = {
       if (context.user) {
         return Story.create(
           {
-            author_id: author_id,
-            content: content,
-            title: title,
-            story_type: story_type
+            author_id,
+            content,
+            title,
+            story_type
           }
         );
 
