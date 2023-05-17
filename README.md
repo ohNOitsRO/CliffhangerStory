@@ -21,9 +21,15 @@ with phillip during class we fixed the story type return mutation/query
 IMPORTANT: IF MODEL CHANGES THE DB MUST BE DROPPED IN COMPASS
 >
 
+<!-- 5/17
+with tutor, added removestory
+changed story model to story schema
+added header to header component and removed it from homepage
+fixed typedefs and resolver logic  -->
+
 <!-- NEXT UP:
 Add onhandle submit logic to take in data and create user stories
-repurpose removeSkill to removeStory
+
 add archive for deleted/hidden stories
 
 -->

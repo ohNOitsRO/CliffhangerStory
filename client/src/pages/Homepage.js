@@ -21,9 +21,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { QUERY_PROFILES } from '../utils/queries';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_PROFILES);
-  const profiles = data?.profiles || [];
-  const navItems = ['Login', 'Sign Up'];
+
 
 const stories = [
   {title: "Toy Story", summary: "Tom Hanks fights Tim Allen"},
@@ -31,40 +29,11 @@ const stories = [
   {title: "Toy Story: Rocket Power", summary: "SHOOBIES"}
 ]
 
-const loadAuthpage = (event) => {
-  event.preventDefault()
-  console.log (event.target)
-}
+
 
   return (
     <>
-     <AppBar component="nav">
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={loadAuthpage}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            MUI
-          </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </AppBar>
+ 
       <Grid container spacing={2}>
     {stories.map((story, idx)=>(
        <Grid item xs={4}>

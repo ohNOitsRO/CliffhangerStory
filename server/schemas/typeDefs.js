@@ -40,7 +40,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
 
     removeProfile: Profile
-    removeSkill(skill: String!): Profile
+    removeStory(story_id: ID!): Profile
 
     addStory(author_id: ID!, content: String!, title: String!, story_type: String): Story
   }

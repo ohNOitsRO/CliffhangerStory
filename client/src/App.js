@@ -12,7 +12,7 @@ import Homepage from './pages/Homepage';
 // import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-// import Header from './components/Header';
+import Header from './components/Header/index';
 // import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
@@ -41,7 +41,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          {/* <Header /> */}
+          <Header />
           <div className="container">
             <Routes>
               <Route 
