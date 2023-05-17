@@ -7,8 +7,6 @@ const storySchema = new Schema({
     unique: true,
     trim: true
   },
-
-//   Email is unique identifier //
   author_id: {
     type: Schema.Types.ObjectId,
     required: true,
@@ -45,6 +43,6 @@ const storySchema = new Schema({
 });
 
 
-const Story = model('Story', storySchema);
+// const Story = model('Story', storySchema);
 
-module.exports = Story;
+module.exports = storySchema;
