@@ -23,42 +23,21 @@ import { QUERY_PROFILES } from '../utils/queries';
 const Home = () => {
 
 
-const stories = [
-  {title: "Toy Story", summary: "Tom Hanks fights Tim Allen"},
-  {title: "Toy Story 2", summary: "The Sequel Fight"},
-  {title: "Toy Story: Rocket Power", summary: "SHOOBIES"}
-]
+  const stories = [
+    {title: "Toy Story", summary: "Tom Hanks fights Tim Allen",
+    type: "My Stories", author: "Tom Hanks"},
+    {title: "Toy Story 2", summary: "The Sequel Fight",
+    type: "Active Stories", author: "Andy Wier"},
+    {title: "Toy Story: Rocket Power", summary: "SHOOBIES",
+    type: "Finished Stories", author: "Johnny Bravo"}
+    
+  ]
 
 
 
   return (
     <>
- 
-      <Grid container spacing={2}>
-    {stories.map((story, idx)=>(
-       <Grid item xs={4}>
-      <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
-        title="green iguana"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {story.title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {story.summary}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
-    </Grid>
-    ))}
-    </Grid>
+
     </>
     
   );
