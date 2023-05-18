@@ -13,6 +13,7 @@ import Homepage from './pages/Homepage';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Header from './components/Header/index';
+import Addstory from './pages/Addstory';
 // import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
@@ -55,6 +56,10 @@ function App() {
               <Route 
                 path="/signup" 
                 element={<Signup />} 
+              />
+              <Route 
+                path="/addstory" 
+                element={<Addstory />} 
               />
               {/* <Route 
                 path="/me" 
