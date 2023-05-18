@@ -11,6 +11,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import Logo from '../../assets/images/cliffhanger-logo.png';
 
 export default function Header() {
     const navItems = ['Login', 'Sign Up'];
@@ -39,7 +40,7 @@ export default function Header() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            Cliffhanger
+            <img src = {Logo}></img>
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
