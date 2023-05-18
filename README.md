@@ -32,6 +32,9 @@ Add onhandle submit logic to take in data and create user stories
 
 add archive for deleted/hidden stories
 
+
+5/17/2023 patience 
+we hadded cards to the homepage and styled it. 
 -->
 
 <!-->
