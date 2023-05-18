@@ -13,6 +13,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Logo from '../../assets/images/cliffhanger-logo.png';
 
+
 export default function Header() {
     const navItems = ['Login', 'Sign Up'];
 
