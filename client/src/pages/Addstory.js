@@ -2,6 +2,7 @@ import { useQuery } from '@apollo/client';
 
 // css framework for mui css underneath//
 import * as React from 'react';
+import{useState} from "react";
 import TextareaAutosize from '@mui/base/TextareaAutosize';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -78,9 +79,42 @@ const StyledTextarea = styled(TextareaAutosize)(
   `,
   );
 
-const Addstory = () => {
+const Addstory = (props) => {
 
+    const [addStory, setAddStory] = useState({ story: ''});
+    // const [login, { error, data }] = useMutation(LOGIN_USER);
+  
+    // update state based on form input changes
+    const handleChange = (event) => {
+      const { story, value } = event.target;
+  
+      setAddStory({
+        ...addStory,
+        [story]: value,
+      });
 
+    };
+  
+    // submit form
+    const handleFormSubmit = async (event) => {
+      event.preventDefault();
+      console.log(addStory);
+      // try {
+      //   const { data } = await login({
+      //     variables: { ...addStory },
+      //   });
+  
+      // //   Auth.login(data.login.token);
+      // } catch (e) {
+      //   console.error(e);
+      // }
+  
+      // clear form values
+      setAddStory({
+        story: '',
+        // password: '',
+      });
+    };
 
 
 
@@ -90,7 +124,14 @@ const Addstory = () => {
   <FormControl style={{marginTop: "100px"}}>
   <InputLabel htmlFor="my-input">Title</InputLabel>
   <Input id="my-input" aria-describedby="my-helper-text" />
-  <FormHelperText id="my-helper-text">Add Your Story Title Here</FormHelperText>
+  <FormHelperText id="my-helper-text"> <input
+                  className="form-input"
+                  placeholder="Your email"
+                  name="story"
+                  type="story"
+                  value={addStory.story}
+                  onChange={handleChange}
+                />Add Your Story Title Here</FormHelperText>
 
   <StyledTextarea
   maxRows={4}
