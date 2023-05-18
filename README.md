@@ -37,7 +37,8 @@ add archive for deleted/hidden stories
 we hadded cards to the homepage and styled it. 
 -->
 
-<!-->
+<!-- 5/18/2023 danny (tutor session 7am)
+Hi gang! mila and i created another page called new story. this will be the page that opens up when we ..um..wanna create...a new story from the homepage. the functionality has been added to the homepage and most of the containers have been added to the new story page, additions to make this work were app.js - a lot of new imports were added from mui in order to bring in the style. ACHTUNG! we need to get in the habit of importing in destructure form and not in so many lines by lines. lets regactor these lines if possible. -->
 
 
 

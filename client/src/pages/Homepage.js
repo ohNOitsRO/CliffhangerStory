@@ -1,4 +1,5 @@
 import { useQuery } from '@apollo/client';
+import { useNavigate } from 'react-router-dom';
 
 // css framework for mui css underneath//
 import * as React from 'react';
@@ -14,14 +15,14 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import CardColumn from '../components/CardColumn'; 
+import CardColumn from '../components/CardColumn';
 
 // import ProfileList from '../components/ProfileList';
 
 import { QUERY_PROFILES } from '../utils/queries';
 
 const Home = () => {
-
+const navigate = useNavigate()
 
   const stories = [
     {
@@ -59,9 +60,15 @@ const Home = () => {
 
 
   return (
+<div style={{marginTop: "100px"}}>
+    <Button onClick={()=>navigate("/addstory")} variant="contained">Add Story</Button>
+
+
     <div style={{display: "flex"} 
 
     }>
+    
+
     <CardColumn cardarray={stories.filter(function (myStory){
       return myStory.type == "My Stories"
     })} />
@@ -74,7 +81,7 @@ const Home = () => {
       return myStory.type == "Finished Stories"
     })} />
     </ div>
-    
+  </div>  
   );
 };
 
