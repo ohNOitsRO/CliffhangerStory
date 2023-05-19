@@ -60,6 +60,7 @@ const navigate = useNavigate()
 
 
   return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginTop: "100px" }}>
 <div style={{marginTop: "100px"}}>
     <Button onClick={()=>navigate("/addstory")} variant="contained">Add Story</Button>
 
@@ -82,6 +83,7 @@ const navigate = useNavigate()
     })} />
     </ div>
   </div>  
+  </div>
   );
 };
 
