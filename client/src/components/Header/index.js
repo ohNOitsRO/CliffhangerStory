@@ -11,6 +11,8 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import Logo from '../../assets/images/cliffhanger-logo.png';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
     const navItems = ['Login', 'Sign Up'];
@@ -23,7 +25,7 @@ export default function Header() {
     return (
     <>
     
-    <AppBar component="nav">
+    <AppBar component="nav" sx={{ backgroundColor: '#00008B' }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -39,24 +41,19 @@ export default function Header() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            Cliffhanger
+            <Link to="./"><img src={Logo} alt="logo" /></Link>
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
-              </Button>
+              <Link to={item === 'Login' ? '/login' : '/signup'} key={item}>
+                <Button sx={{ color: '#fff' }}>
+                  {item}
+                </Button>
+              </Link>
             ))}
           </Box>
         </Toolbar>
       </AppBar>
-    
-    
-    
     </>
     )
-
-
-
-
 }
