@@ -49,8 +49,12 @@ Hi gang! mila and i created another page called new story. this will be the page
 -current stuff we have is hardcoded as placeholders, we have framework but its not styled to be horizontal
 -we need to pass in Author, story, title, story type,
 -implement the carousel? ----absolute fail!
----->
+---!>
 
 
 <!-- 5/22 -->
 <!-- in Homepage.js, error using useQuery - trying to query public stories, data returns undefined -->
+
+<!-- 5/23 -->
+<!-- issue: login wasnt working, create profile wasnt working, = solution dropped db from dbatlas software -->
+

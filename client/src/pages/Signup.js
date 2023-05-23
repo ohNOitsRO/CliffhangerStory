@@ -41,6 +41,7 @@ const Signup = () => {
   };
 
   return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingTop: "400px" }}>
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
@@ -95,7 +96,9 @@ const Signup = () => {
           </div>
         </div>
       </div>
+      
     </main>
+    </div>
   );
 };
 

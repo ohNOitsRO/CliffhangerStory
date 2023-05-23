@@ -43,7 +43,7 @@ const Home = () => {
   // console.log(data.publicStories)
 
 
-
+console.log (stories)
   // const stories = [
   //   {
   //     title: "Toy Story", 
