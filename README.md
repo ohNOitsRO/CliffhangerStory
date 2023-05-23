@@ -43,11 +43,19 @@ Hi gang! mila and i created another page called new story. this will be the page
 
 
 
-<!----To work with Mila
+<!----To work with Mila  -----absolute fail! 
 -type in the story and save it into profile(implement the fetch), to array of user & needs to render on the homepage
 -We need to create story seeds
 -current stuff we have is hardcoded as placeholders, we have framework but its not styled to be horizontal
 -we need to pass in Author, story, title, story type,
--implement the carousel?
+-implement the carousel? ----absolute fail!
 ---->
 
+<!--to do: 
+ functional adding story and passing it to database
+ functional story card display
+ functional story display
+ create seeds for stories and models
+ try to work on story branching
+ stylization
+ heroku>
