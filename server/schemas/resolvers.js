@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Profile, Story } = require('../models');
+const { Profile, Story, Continuations } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -29,15 +29,20 @@ const resolvers = {
     throw new AuthenticationError('You need to be logged in!');
     },
 
-    otherStories: async (parent, args) => {
+    publicStories: async (parent, args, context) => {
+      console.log(context.user);
+      console.log("shaqattack"); 
       if (context.user) {
-      return Story.find({
+      const stories = await Story.find({
         where: {
-          user_email: {
-            $ne: user._id
-          }
+          author_id: {
+            $ne: context.user._id,
+          },
+          story_type: "open"
         }
-      })
+      }).lean().exec();
+      console.log(stories);
+      return stories;
     }
     throw new AuthenticationError('You need to be logged in!');
     },
@@ -84,15 +89,22 @@ const resolvers = {
 
     }},
 
+    addCont: async (parent, { main_story, main_author, cont_name, cont_author }, context) => {
+      console.log(main_story, main_author, cont_name, cont_author );
+      if (context.user) {
+        return Continuations.create(
+          {
+            main_story,
+            main_author,
+            cont_name,
+            cont_author
+          }
+        );
 
-    // Set up mutation so a logged in user can only remove their profile and no one else's
-    // removeProfile: async (parent, args, context) => {
-    //   if (context.user) {
-    //     return Profile.findOneAndDelete({ _id: context.user._id });
-    //   }
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
-    // Make it so a logged in user can only remove a skill from their own profile
+    }},
+
+
+  
     removeStory: async (parent, { story_id }, context) => {
       if (context.user) {
         return Profile.findOneAndDelete(
