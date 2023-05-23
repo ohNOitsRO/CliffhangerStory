@@ -15,8 +15,16 @@ const typeDefs = gql`
     content: String!
     date: String!
     contributors: [ID]
-    is_deleted: Boolean!
+   
     story_type: String!
+  }
+
+  type Continuations {
+    main_story: ID
+    main_author: ID!
+    cont_name: String!
+    cont_author: ID!
+    is_deleted: Boolean!
   }
 
   type Auth {
@@ -30,8 +38,8 @@ const typeDefs = gql`
     # Because we have the context functionality in place to check a JWT and decode its data, we can use a query that will always find and return the logged in user's data
     me: Profile
 
-    myStories(email: String!): [Story]
-    otherStories: [Story]
+    myStories(email: String! title: String!): [Story] 
+    publicStories: [Story]
     uniqueContributions(email: String!): [Story]
   }
 
@@ -43,6 +51,7 @@ const typeDefs = gql`
     removeStory(story_id: ID!): Profile
 
     addStory(author_id: ID!, content: String!, title: String!, story_type: String): Story
+    addCont(main_story: ID!, main_author: String!, cont_name: String!, cont_author: ID!): Continuations
   }
 `;
 

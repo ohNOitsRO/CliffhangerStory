@@ -51,11 +51,6 @@ Hi gang! mila and i created another page called new story. this will be the page
 -implement the carousel? ----absolute fail!
 ---->
 
-<!--to do: 
- functional adding story and passing it to database
- functional story card display
- functional story display
- create seeds for stories and models
- try to work on story branching
- stylization
- heroku>
+
+<!-- 5/22 -->
+<!-- in Homepage.js, error using useQuery - trying to query public stories, data returns undefined -->

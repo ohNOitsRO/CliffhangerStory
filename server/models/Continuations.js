@@ -34,3 +34,5 @@ const contSchema = new Schema({
     }
 
 })
+
+module.exports = contSchema;

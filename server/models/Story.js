@@ -4,7 +4,7 @@ const storySchema = new Schema({
   title: {
     type: String,
     required: true,
-    unique: true,
+    // unique: true,
     trim: true
   },
   author_id: {
@@ -32,8 +32,7 @@ const storySchema = new Schema({
     type: Boolean
   },
   story_type: {
-    type: String,
-    required: true,
+    type: String
 
   }
 
@@ -43,6 +42,6 @@ const storySchema = new Schema({
 });
 
 
-// const Story = model('Story', storySchema);
+const Story = model('Story', storySchema);
 
-module.exports = storySchema;
+module.exports = Story;

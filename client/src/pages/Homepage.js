@@ -2,7 +2,8 @@ import { useQuery } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
 
 // css framework for mui css underneath//
-import * as React from 'react';
+// import * as React from 'react';
+import React, { useEffect } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -19,15 +20,33 @@ import CardColumn from '../components/CardColumn';
 
 // import ProfileList from '../components/ProfileList';
 
-import { QUERY_PROFILES } from '../utils/queries';
+import { QUERY_STORIES } from '../utils/queries';
 
 const Home = () => {
 const navigate = useNavigate()
 
+
+const { loading, data } = useQuery(QUERY_STORIES);
+
+useEffect(() => {
+      console.log("shaqattack", loading, data);
+      if (data){
+        console.log(data, "TOM CRUISE MAVERICK TOP GUN SHAQ 8");
+      }
+
+
+
+},[])
+
+
+
+
+
   const stories = [
     {
       title: "Toy Story", 
-      summary: "Tom Hanks fights Tim Allen", type: "My Stories", 
+      summary: "Tom Hanks fights Tim Allen", 
+      type: "Public Stories", 
       author: "Tom Hanks"
     },
     {
@@ -45,13 +64,13 @@ const navigate = useNavigate()
     {
       title: "Toy Story 2", 
       summary: "The Sequel Fight",
-      type: "Active Stories", 
+      type: "Public Stories", 
       author: "Andy Wier"
     },
     {
       title: "Toy Story: Rocket Power", 
       summary: "SHOOBIES",
-      type: "Finished Stories", 
+      type: "Public Stories", 
       author: "Johnny Bravo"
     }
     
@@ -62,7 +81,7 @@ const navigate = useNavigate()
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginTop: "100px" }}>
 <div style={{marginTop: "100px"}}>
-    <Button onClick={()=>navigate("/addstory")} variant="contained">Add Story</Button>
+    {/* <Button onClick={()=>navigate("/addstory")} variant="contained">Add Story</Button> */}
 
 
     <div style={{display: "flex"} 
@@ -70,18 +89,22 @@ const navigate = useNavigate()
     }>
     
 
+
+
     <CardColumn cardarray={stories.filter(function (myStory){
       return myStory.type == "My Stories"
     })} />
 
     <CardColumn cardarray={stories.filter(function (myStory){
-      return myStory.type == "Active Stories"
+      return myStory.type == "Public Stories"
     })} />
 
-       <CardColumn cardarray={stories.filter(function (myStory){
+
+       {/* <CardColumn cardarray={stories.filter(function (myStory){
       return myStory.type == "Finished Stories"
-    })} />
+    })} /> */}
     </ div>
+    <Button onClick={()=>navigate("/addstory")} variant="contained">Add Story</Button>
   </div>  
   </div>
   );
