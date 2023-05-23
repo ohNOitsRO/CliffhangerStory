@@ -14,6 +14,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Header from './components/Header/index';
 import Addstory from './pages/Addstory';
+import Readstory from './pages/Readstory';
 // import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
@@ -60,6 +61,10 @@ function App() {
               <Route 
                 path="/addstory" 
                 element={<Addstory />} 
+              />
+               <Route 
+                path="/readstory/:story" 
+                element={<Readstory />} 
               />
               {/* <Route 
                 path="/me" 

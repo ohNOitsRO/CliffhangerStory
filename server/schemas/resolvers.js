@@ -59,7 +59,9 @@ const resolvers = {
       return { token, profile };
     },
     login: async (parent, { email, password }) => {
+      
       const profile = await Profile.findOne({ email });
+      console.log (profile)
 
       if (!profile) {
         throw new AuthenticationError('No profile with this email found!');

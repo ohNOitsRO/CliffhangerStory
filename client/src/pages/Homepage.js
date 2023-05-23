@@ -20,11 +20,11 @@ import CardColumn from '../components/CardColumn';
 
 // import ProfileList from '../components/ProfileList';
 
-import { QUERY_STORIES } from '../utils/queries';
+import { QUERY_STORIES, QUERY_ME } from '../utils/queries';
 
 const Home = () => {
   const navigate = useNavigate()
-  const { loading, data } = useQuery(QUERY_STORIES);
+  const { loading, data } = useQuery(QUERY_STORIES, QUERY_ME);
   const [stories, setStories] = useState([])
 
 
@@ -34,6 +34,7 @@ const Home = () => {
       console.log("LINE 356", data.publicStories, "TOM CRUISE MAVERICK TOP GUN SHAQ 8");
       setStories(data.publicStories)
       console.log(stories)
+     
     }
 
 
@@ -43,7 +44,8 @@ const Home = () => {
   // console.log(data.publicStories)
 
 
-
+console.log (stories)
+console.log (stories)
   // const stories = [
   //   {
   //     title: "Toy Story", 
