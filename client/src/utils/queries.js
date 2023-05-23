@@ -33,13 +33,12 @@ export const QUERY_ME = gql`
 
 export const QUERY_STORIES = gql`
   query publicStories {
-    me {
-      _id
-      author_id
-      title
-      content
-      contributors
-      date
+    publicStories {
+    author_id
+    title
+    content
+    date
+    story_type
     }
   }
 `;

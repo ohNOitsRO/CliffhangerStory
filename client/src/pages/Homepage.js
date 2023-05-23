@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 // css framework for mui css underneath//
 // import * as React from 'react';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -23,90 +23,96 @@ import CardColumn from '../components/CardColumn';
 import { QUERY_STORIES } from '../utils/queries';
 
 const Home = () => {
-const navigate = useNavigate()
+  const navigate = useNavigate()
+  const { loading, data } = useQuery(QUERY_STORIES);
+  const [stories, setStories] = useState([])
 
 
-const { loading, data } = useQuery(QUERY_STORIES);
-
-useEffect(() => {
-      console.log("shaqattack", loading, data);
-      if (data){
-        console.log(data, "TOM CRUISE MAVERICK TOP GUN SHAQ 8");
-      }
-
-
-
-},[])
-
-
-
-
-
-  const stories = [
-    {
-      title: "Toy Story", 
-      summary: "Tom Hanks fights Tim Allen", 
-      type: "Public Stories", 
-      author: "Tom Hanks"
-    },
-    {
-      title: "Little mermaid", 
-      summary: "Mermaid v Zombies", 
-      type: "My Stories", 
-      author: "Dru"
-    },
-    {
-      title: "spongebob", 
-      summary: "Spongebob v Aliens", 
-      type: "My Stories", 
-      author: "Patience"
-    },
-    {
-      title: "Toy Story 2", 
-      summary: "The Sequel Fight",
-      type: "Public Stories", 
-      author: "Andy Wier"
-    },
-    {
-      title: "Toy Story: Rocket Power", 
-      summary: "SHOOBIES",
-      type: "Public Stories", 
-      author: "Johnny Bravo"
+  useEffect(() => {
+    console.log("shaqattack", loading, data);
+    if (data) {
+      console.log("LINE 356", data.publicStories, "TOM CRUISE MAVERICK TOP GUN SHAQ 8");
+      setStories(data.publicStories)
+      console.log(stories)
     }
-    
-  ]
+
+
+
+  }, [loading])
+
+  // console.log(data.publicStories)
+
+
+
+  // const stories = [
+  //   {
+  //     title: "Toy Story", 
+  //     summary: "Tom Hanks fights Tim Allen", 
+  //     type: "Public Stories", 
+  //     author: "Tom Hanks"
+  //   },
+  //   {
+  //     title: "Little mermaid", 
+  //     summary: "Mermaid v Zombies", 
+  //     type: "My Stories", 
+  //     author: "Dru"
+  //   },
+  //   {
+  //     title: "spongebob", 
+  //     summary: "Spongebob v Aliens", 
+  //     type: "My Stories", 
+  //     author: "Patience"
+  //   },
+  //   {
+  //     title: "Toy Story 2", 
+  //     summary: "The Sequel Fight",
+  //     type: "Public Stories", 
+  //     author: "Andy Wier"
+  //   },
+  //   {
+  //     title: "Toy Story: Rocket Power", 
+  //     summary: "SHOOBIES",
+  //     type: "Public Stories", 
+  //     author: "Johnny Bravo"
+  //   }
+
+  // ]
 
 
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginTop: "100px" }}>
-<div style={{marginTop: "100px"}}>
-    {/* <Button onClick={()=>navigate("/addstory")} variant="contained">Add Story</Button> */}
+      <div style={{ marginTop: "100px" }}>
+        {/* <Button onClick={()=>navigate("/addstory")} variant="contained">Add Story</Button> */}
 
 
-    <div style={{display: "flex"} 
+        <div style={{ display: "flex" }
 
-    }>
-    
+        }>
 
-
-
+          {/* check data before rendering */}
+          {stories ? <div><CardColumn cardarray={stories.filter(function (myStory) {
+            return myStory.story_type == "readOnly"
+          })} />  <CardColumn cardarray={stories.filter(function (myStory) {
+            return myStory.story_type == "open"
+          })} /> </div> : "loading"}
+          {/* {conditional ? true : false}
     <CardColumn cardarray={stories.filter(function (myStory){
       return myStory.type == "My Stories"
     })} />
 
     <CardColumn cardarray={stories.filter(function (myStory){
       return myStory.type == "Public Stories"
-    })} />
+    })} /> */}
 
 
-       {/* <CardColumn cardarray={stories.filter(function (myStory){
+          {/* <CardColumn cardarray={stories.filter(function (myStory){
       return myStory.type == "Finished Stories"
     })} /> */}
-    </ div>
-    <Button onClick={()=>navigate("/addstory")} variant="contained">Add Story</Button>
-  </div>  
-  </div>
+        </ div>
+        <Button onClick={() => navigate("/addstory")} variant="contained">Add Story</Button>
+      </div>
+    </div>
   );
 };
 
