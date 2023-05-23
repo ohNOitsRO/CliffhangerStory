@@ -6,10 +6,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import {useNavigate} from "react-router-dom"
-import { Story } from '../../../../server/models';
+// import { Story } from '../../../../server/models/Story';
 
 
-export default function Storycard({title, summary, author, author_id}) {
+export default function Storycard({title, content, author_id}) {
   const navigate= useNavigate()
 return(
     <Card sx={{ maxWidth: 345 }}>
@@ -20,18 +20,18 @@ return(
       />
       <CardContent>
       <Typography gutterBottom variant="h5" component="div">
-          {author}
+          {author_id}
         </Typography>
         <Typography gutterBottom variant="h5" component="div">
           {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {summary}
+          {content}
         </Typography>
       </CardContent>
       <CardActions>
         {/* <Button size="small">Share</Button> */}
-        <Button size="small" onClick={()=>navigate (`/readstory/${Story}`)}>Read Story</Button>
+        {/* <Button size="small" onClick={()=>navigate (`/readstory/${Story}`)}>Read Story</Button> */}
       </CardActions>
     </Card>
 )

@@ -57,4 +57,5 @@ Hi gang! mila and i created another page called new story. this will be the page
 
 <!-- 5/23 -->
 <!-- issue: login wasnt working, create profile wasnt working, = solution dropped db from dbatlas software -->
+<!-- fixed login and add profile by resseting db - we created parts for read story component and routes. we need to add parts to the readstory.js for it to stop erroring out -->
 
