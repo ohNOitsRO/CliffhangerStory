@@ -8,7 +8,7 @@ export default function CardColumn({ cardarray }) {
 
   }>
       {cardarray.map((storyobject) => {
-        return <Storycard title={storyobject.title} summary={storyobject.summary} author={storyobject.author}/>
+        return <Storycard title={storyobject.title} content={storyobject.content} author_id={storyobject.author_id}/>
 
 
       })}
