@@ -20,9 +20,10 @@ const profileSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  myStories : [
-    storySchema
-  ]
+  myStories : [{
+    type: Schema.Types.ObjectId,
+    ref:"Story"
+}]
 });
 
 // set up pre-save middleware to create password

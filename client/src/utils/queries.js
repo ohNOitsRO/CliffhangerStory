@@ -10,6 +10,7 @@ export const QUERY_PROFILES = gql`
   }
 `;
 
+// ONE DAY WE WILL FUNCTIONALIZE THIS ICEBOX MONGOOSE TOP CRUISE GUN MAVERICK
 export const QUERY_SINGLE_PROFILE = gql`
   query singleProfile($profileId: ID!) {
     profile(profileId: $profileId) {
@@ -25,7 +26,20 @@ export const QUERY_ME = gql`
     me {
       _id
       name
-      skills
+      myStories
+    }
+  }
+`;
+
+export const QUERY_STORIES = gql`
+  query publicStories {
+    me {
+      _id
+      author_id
+      title
+      content
+      contributors
+      date
     }
   }
 `;
