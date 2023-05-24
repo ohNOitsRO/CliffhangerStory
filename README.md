@@ -59,3 +59,10 @@ Hi gang! mila and i created another page called new story. this will be the page
 <!-- issue: login wasnt working, create profile wasnt working, = solution dropped db from dbatlas software -->
 <!-- fixed login and add profile by resseting db - we created parts for read story component and routes. we need to add parts to the readstory.js for it to stop erroring out -->
 
+
+
+<!--------5/23 Patience working with Dru>
+We worked on creating an edit button. 
+We added a read me button that allows the user to pull there current story up. 
+
+The query needs to be fixed so that the id can determine with story is being read. 

@@ -20,7 +20,8 @@ export default function CardColumn({ cardarray }) {
           <Storycard 
             title={storyobject.title} 
             content={limitedContent} 
-            author_id={storyobject.author_id}
+            author_id={storyobject.author_id} 
+            _id ={storyobject._id}
           />
         );
       })}

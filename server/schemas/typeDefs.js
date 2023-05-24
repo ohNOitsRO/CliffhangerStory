@@ -10,6 +10,7 @@ const typeDefs = gql`
   }
 
   type Story {
+    _id: ID
     author_id: ID
     title: String!
     content: String!

@@ -34,6 +34,7 @@ export const QUERY_ME = gql`
 export const QUERY_STORIES = gql`
   query publicStories {
     publicStories {
+    _id
     author_id
     title
     content
