@@ -32,13 +32,17 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_STORIES = gql`
-  query publicStories {
-    publicStories {
-    author_id
-    title
+query publicStories {
+  publicStories {
     content
+    contributors
     date
     story_type
+    title
+    author_id {
+      name
+      _id
     }
   }
+}
 `;
