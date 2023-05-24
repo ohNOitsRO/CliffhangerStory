@@ -41,7 +41,7 @@ const Signup = () => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingTop: "400px" }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingTop: "250px" }}>
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
@@ -81,6 +81,7 @@ const Signup = () => {
                 <button
                   className="btn btn-block btn-info"
                   style={{ cursor: 'pointer' }}
+                  
                   type="submit"
                 >
                   Submit

@@ -13,7 +13,7 @@ import book from "../../assets/images/book.jpg";
 export default function Storycard({title, content, author_id, _id}) {
   const navigate= useNavigate()
 return(
-    <Card sx={{ maxWidth: 345, margin: 5}}>
+    <Card style={{ borderRadius: 45 }} sx={{ maxWidth: 345, margin: 5}}>
       <CardMedia
         sx={{ height: 140 }}
         image={book}

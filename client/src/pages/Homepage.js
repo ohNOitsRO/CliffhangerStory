@@ -93,9 +93,9 @@ const Home = () => {
         }>
 
           {/* check data before rendering */}
-          {stories ? <div><CardColumn style={{ borderRadius: 45 }} cardarray={stories.filter(function (myStory) {
+          {stories ? <div><CardColumn cardarray={stories.filter(function (myStory) {
             return myStory.story_type == "readOnly"
-          })} />  <CardColumn style={{ borderRadius: 45 }} cardarray={stories.filter(function (myStory) {
+          })} />  <CardColumn cardarray={stories.filter(function (myStory) {
             return myStory.story_type == "open"
           })} /> </div> : "loading"}
           {/* {conditional ? true : false}
@@ -113,7 +113,7 @@ const Home = () => {
     })} /> */}
         </ div>
         <Button onClick={() => navigate("/addstory")} variant="contained" sx={{
-          backgroundColor: "#ff4d00",
+          backgroundColor: "#ff4d00"
         }} >Add Story</Button>
       </div>
     </div>
