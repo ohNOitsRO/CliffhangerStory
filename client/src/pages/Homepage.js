@@ -20,11 +20,11 @@ import CardColumn from '../components/CardColumn';
 
 // import ProfileList from '../components/ProfileList';
 
-import { QUERY_STORIES, QUERY_ME } from '../utils/queries';
+import { QUERY_STORIES} from '../utils/queries';
 
 const Home = () => {
   const navigate = useNavigate()
-  const { loading, data } = useQuery(QUERY_STORIES, QUERY_ME);
+  const { loading, data } = useQuery(QUERY_STORIES);
   const [stories, setStories] = useState([])
 
 

@@ -40,7 +40,7 @@ const resolvers = {
           },
           story_type: "open"
         }
-      }).lean().exec();
+      }).populate("author_id")
       console.log(stories);
       return stories;
     }

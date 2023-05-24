@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import {useNavigate} from "react-router-dom"
 // import { Story } from '../../../../server/models/Story';
+import book from "../../assets/images/book.jpg";
 
 
 export default function Storycard({title, content, author_id}) {
@@ -15,12 +16,12 @@ return(
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
-        title="green iguana"
+        image={book}
+        title="awesome story"
       />
       <CardContent>
       <Typography gutterBottom variant="h5" component="div">
-          {author_id}
+          {author_id.name}
         </Typography>
         <Typography gutterBottom variant="h5" component="div">
           {title}
