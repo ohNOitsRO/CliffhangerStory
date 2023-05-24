@@ -121,17 +121,15 @@ const Addstory = (props) => {
 
   return (
 
-  <FormControl style={{marginTop: "100px"}}>
-  <InputLabel htmlFor="my-input">Title</InputLabel>
-  <Input id="my-input" aria-describedby="my-helper-text" />
-  <FormHelperText id="my-helper-text"> <input
-                  className="form-input"
-                  placeholder="Your email"
+
+  <FormControl style={{marginTop: "250px"}}>
+  <Input id="my-input" className="form-input"
+                  placeholder="Your Story Title"
                   name="story"
                   type="story"
                   value={addStory.story}
                   onChange={handleChange}
-                />Add Your Story Title Here</FormHelperText>
+                  aria-describedby="my-helper-text" />
 
   <StyledTextarea
   maxRows={4}
@@ -148,13 +146,15 @@ const Addstory = (props) => {
     label="Age"
     // onChange={handleChange}
   >
-    <MenuItem value={"Private"}>Private</MenuItem>
     <MenuItem value={"Open"}>Open</MenuItem>
     <MenuItem value={"Read Only"}>Read Only</MenuItem>
   </Select>
 
 
-   <Button variant="contained">Save</Button>
+   <Button variant="contained" 
+           sx={{
+              backgroundColor: "#ff4d00"
+            }}>Save</Button>
 
 
   </FormControl>
