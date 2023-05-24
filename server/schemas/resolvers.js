@@ -33,15 +33,19 @@ const resolvers = {
       console.log(context.user);
       console.log("shaqattack");
       if (context.user) {
-        const stories = await Story.find({
-          where: {
-            story_type: "open"
-          }
-        }).lean().exec();
-        console.log(stories);
-        return stories;
-      }
-      throw new AuthenticationError('You need to be logged in!');
+
+      const stories = await Story.find({
+        where: {
+          author_id: {
+            $ne: context.user._id,
+          },
+          story_type: "open"
+        }
+      }).populate("author_id")
+      console.log(stories);
+      return stories;
+    }
+    throw new AuthenticationError('You need to be logged in!');
     },
 
 

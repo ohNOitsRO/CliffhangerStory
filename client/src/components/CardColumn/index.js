@@ -12,7 +12,7 @@ const limitWords = (content, wordLimit) => {
 
 export default function CardColumn({ cardarray }) {
   return (
-    <div style={{ display: "block" }}>
+    <div style={{ display: "flex"  }}>
       {cardarray.map((storyobject) => {
         // Limit the content to the first 20 words
         const limitedContent = limitWords(storyobject.content, 20);
