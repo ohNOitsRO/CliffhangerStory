@@ -1,8 +1,8 @@
 import { useQuery } from '@apollo/client';
-
+import { useLocation } from "react-router-dom"
 // css framework for mui css underneath//
 import * as React from 'react';
-import{useState} from "react";
+import { useState } from "react";
 import TextareaAutosize from '@mui/base/TextareaAutosize';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -27,30 +27,30 @@ import { styled } from '@mui/system';
 import { QUERY_PROFILES } from '../utils/queries';
 
 const blue = {
-    100: '#DAECFF',
-    200: '#b6daff',
-    400: '#3399FF',
-    500: '#007FFF',
-    600: '#0072E5',
-    900: '#003A75',
-  };
+  100: '#DAECFF',
+  200: '#b6daff',
+  400: '#3399FF',
+  500: '#007FFF',
+  600: '#0072E5',
+  900: '#003A75',
+};
 
-  const grey = {
-    50: '#f6f8fa',
-    100: '#eaeef2',
-    200: '#d0d7de',
-    300: '#afb8c1',
-    400: '#8c959f',
-    500: '#6e7781',
-    600: '#57606a',
-    700: '#424a53',
-    800: '#32383f',
-    900: '#24292f',
-  };
+const grey = {
+  50: '#f6f8fa',
+  100: '#eaeef2',
+  200: '#d0d7de',
+  300: '#afb8c1',
+  400: '#8c959f',
+  500: '#6e7781',
+  600: '#57606a',
+  700: '#424a53',
+  800: '#32383f',
+  900: '#24292f',
+};
 
 
 const StyledTextarea = styled(TextareaAutosize)(
-    ({ theme }) => `
+  ({ theme }) => `
     width: 320px;
     font-family: IBM Plex Sans, sans-serif;
     font-size: 0.875rem;
@@ -77,89 +77,91 @@ const StyledTextarea = styled(TextareaAutosize)(
       outline: 0;
     }
   `,
-  );
+);
 
 const Readstory = (props) => {
+  const { state } = useLocation();
+  const { _id } = state
+  console.log(state, _id)
+  const [readStory, setReadStory] = useState({ story: '' });
+  // const [login, { error, data }] = useMutation(LOGIN_USER);
 
-    const [readStory, setReadStory] = useState({ story: ''});
-    // const [login, { error, data }] = useMutation(LOGIN_USER);
-  
-    // update state based on form input changes
-    const handleChange = (event) => {
-      const { story, value } = event.target;
-  
-      setReadStory({
-        ...readStory,
-        [story]: value,
-      });
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { story, value } = event.target;
 
-    };
-  
-    // submit form
-    const handleFormSubmit = async (event) => {
-      event.preventDefault();
-      console.log(readStory);
-      // try {
-      //   const { data } = await login({
-      //     variables: { ...addStory },
-      //   });
-  
-      // //   Auth.login(data.login.token);
-      // } catch (e) {
-      //   console.error(e);
-      // }
-  
-      // clear form values
-      setReadStory({
-        story: '',
-        // password: '',
-      });
-    };
+    setReadStory({
+      ...readStory,
+      [story]: value,
+    });
+
+  };
+
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(readStory);
+    // try {
+    //   const { data } = await login({
+    //     variables: { ...addStory },
+    //   });
+
+    // //   Auth.login(data.login.token);
+    // } catch (e) {
+    //   console.error(e);
+    // }
+
+    // clear form values
+    setReadStory({
+      story: '',
+      // password: '',
+    });
+  };
 
 
 
 
   return (
 
-  <FormControl style={{marginTop: "100px"}}>
-  <InputLabel htmlFor="my-input">Title</InputLabel>
-  <Input id="my-input" aria-describedby="my-helper-text" />
-  <FormHelperText id="my-helper-text"> <input
-                  className="form-input"
-                  placeholder="Your email"
-                  name="story"
-                  type="story"
-                  value={readStory.story}
-                  onChange={handleChange}
-                />Add Your Story Title Here</FormHelperText>
+    <FormControl style={{ marginTop: "100px" }}>
+      <InputLabel htmlFor="my-input">Title</InputLabel>
+      <Input id="my-input" aria-describedby="my-helper-text" />
+      <FormHelperText id="my-helper-text"> <input
+        className="form-input"
+        placeholder="Your email"
+        name="story"
+        type="story"
+        value={readStory.story}
+        onChange={handleChange}
+      />Add Your Story Title Here</FormHelperText>
 
-  <StyledTextarea
-  maxRows={4}
-  aria-label="maximum height"
-  placeholder="Maximum 4 rows"
-  defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+      <StyledTextarea
+        maxRows={4}
+        aria-label="maximum height"
+        placeholder="Maximum 4 rows"
+        defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
     ut labore et dolore magna aliqua."
-   />
+      />
 
-<Select
-    labelId="demo-simple-select-label"
-    id="demo-simple-select"
-    value={"Read Only"}
-    label="Age"
-    // onChange={handleChange}
-  >
-    <MenuItem value={"Private"}>Private</MenuItem>
-    <MenuItem value={"Open"}>Open</MenuItem>
-    <MenuItem value={"Read Only"}>Read Only</MenuItem>
-  </Select>
-
-
-   <Button variant="contained">Save</Button>
+      <Select
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
+        value={"Read Only"}
+        label="Age"
+      // onChange={handleChange}
+      >
+        <MenuItem value={"Private"}>Private</MenuItem>
+        <MenuItem value={"Open"}>Open</MenuItem>
+        <MenuItem value={"Read Only"}>Read Only</MenuItem>
+      </Select>
 
 
-  </FormControl>
+      <Button variant="contained">Save</Button>
+      <Button variants="conatined">Edit</Button>
 
-    
+    </FormControl>
+
+
   );
 };
 

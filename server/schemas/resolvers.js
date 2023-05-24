@@ -20,19 +20,20 @@ const resolvers = {
     },
     myStories: async (parent, { email }, context) => {
       if (context.user) {
-      return Story.find({
-        where: {
-          user_email: email
-        }
-      })
-    }
-    throw new AuthenticationError('You need to be logged in!');
+        return Story.find({
+          where: {
+            user_email: email
+          }
+        })
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
 
     publicStories: async (parent, args, context) => {
       console.log(context.user);
-      console.log("shaqattack"); 
+      console.log("shaqattack");
       if (context.user) {
+
       const stories = await Story.find({
         where: {
           author_id: {
@@ -59,9 +60,9 @@ const resolvers = {
       return { token, profile };
     },
     login: async (parent, { email, password }) => {
-      
+
       const profile = await Profile.findOne({ email });
-      console.log (profile)
+      console.log(profile)
 
       if (!profile) {
         throw new AuthenticationError('No profile with this email found!');
@@ -77,7 +78,7 @@ const resolvers = {
       return { token, profile };
     },
 
-    addStory: async (parent, { author_id, content, title, story_type}, context) => {
+    addStory: async (parent, { author_id, content, title, story_type }, context) => {
       console.log(author_id, content, title, story_type);
       if (context.user) {
         return Story.create(
@@ -89,10 +90,11 @@ const resolvers = {
           }
         );
 
-    }},
+      }
+    },
 
     addCont: async (parent, { main_story, main_author, cont_name, cont_author }, context) => {
-      console.log(main_story, main_author, cont_name, cont_author );
+      console.log(main_story, main_author, cont_name, cont_author);
       if (context.user) {
         return Continuations.create(
           {
@@ -103,15 +105,16 @@ const resolvers = {
           }
         );
 
-    }},
+      }
+    },
 
 
-  
+
     removeStory: async (parent, { story_id }, context) => {
       if (context.user) {
         return Profile.findOneAndDelete(
           { _id: context.user._id },
-          { $pull: { myStories: {story_id}} },
+          { $pull: { myStories: { story_id } } },
           { new: true }
         );
       }

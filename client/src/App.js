@@ -63,7 +63,7 @@ function App() {
                 element={<Addstory />} 
               />
                <Route 
-                path="/readstory/:story" 
+                path="/readstory" 
                 element={<Readstory />} 
               />
               {/* <Route 
