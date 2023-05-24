@@ -13,18 +13,18 @@ import book from "../../assets/images/book.jpg";
 export default function Storycard({title, content, author_id}) {
   const navigate= useNavigate()
 return(
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, margin: 5}}>
       <CardMedia
         sx={{ height: 140 }}
         image={book}
         title="awesome story"
       />
       <CardContent>
-      <Typography gutterBottom variant="h5" component="div">
-          {author_id.name}
-        </Typography>
-        <Typography gutterBottom variant="h5" component="div">
+      <Typography gutterBottom variant="h5" component="div" color="#0d14a1">
           {title}
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div" color="#ff4d00" weight="strong">
+          {author_id.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {content}
