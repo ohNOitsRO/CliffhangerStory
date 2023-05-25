@@ -79,9 +79,9 @@ const resolvers = {
     },
 
     addStory: async (parent, args, context) => {
-      
+      console.log(context.user)
       if (context.user) {
-        args.author_id = context.user.id
+        args.author_id = context.user._id
         return Story.create(args);
 
       }

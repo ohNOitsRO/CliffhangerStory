@@ -13,9 +13,8 @@ export const ADD_PROFILE = gql`
 `;
 
 export const ADD_STORY = gql`
-  mutation addStory($content: ID!, $title: String!, $story_type: String!) {
+  mutation addStory($content: String!, $title: String!, $story_type: String!) {
     addStory(content: $content, title: $title, story_type: $story_type) {
-      author_id
       title
       content
       date
@@ -44,3 +43,15 @@ export const REMOVE_SKILL = gql`
     }
   }
 `;
+// export const ADD_STORY = gql`
+//   mutation addStory($authorId: String!, $content: String!,  $title:String! $storytype: String!) {
+//     addStory(author_id: $authorId, content:$content, title:$title, story_type:$storytype) {
+//     author_id
+//     title
+//     content
+//     date
+//     contributors
+//     is_deleted
+//     }
+//   }
+// `;

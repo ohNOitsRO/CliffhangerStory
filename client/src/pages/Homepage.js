@@ -94,9 +94,9 @@ const Home = () => {
 
           {/* check data before rendering */}
           {stories ? <div><CardColumn cardarray={stories.filter(function (myStory) {
-            return myStory.story_type == "readOnly"
+            return myStory.story_type == "Read Only"
           })} />  <CardColumn cardarray={stories.filter(function (myStory) {
-            return myStory.story_type == "open"
+            return myStory.story_type == "Open"
           })} /> </div> : "loading"}
           {/* {conditional ? true : false}
     <CardColumn cardarray={stories.filter(function (myStory){

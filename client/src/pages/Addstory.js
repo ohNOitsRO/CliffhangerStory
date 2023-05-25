@@ -19,6 +19,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CardColumn from '../components/CardColumn';
 import { FormControl, InputLabel, Input, FormHelperText, Select, MenuItem } from '@mui/material';
 import { styled } from '@mui/system';
+import { ADD_STORY } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
+
 
 //consolidate imports into destructured import//
 
@@ -87,6 +90,7 @@ const Addstory = (props) => {
     story_type: 'Read Only',
   });
   // const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [createStoryconnection, { error }] = useMutation(ADD_STORY);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -103,15 +107,15 @@ const Addstory = (props) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(addStory);
-    // try {
-    //   const { data } = await login({
-    //     variables: { ...addStory },
-    //   });
+    try {
+      const { data } = await createStoryconnection({
+        variables: { ...addStory },
+      });
 
-    // //   Auth.login(data.login.token);
-    // } catch (e) {
-    //   console.error(e);
-    // }
+    //   Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
 
     // clear form values
     setAddStory({
