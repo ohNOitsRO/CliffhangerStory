@@ -44,3 +44,15 @@ export const REMOVE_SKILL = gql`
     }
   }
 `;
+export const ADD_STORY = gql`
+  mutation addStory($authorId: String!, $content: String!,  $title:String! $storytype: String!) {
+    addStory(author_id: $authorId, content:$content, title:$title, story_type:$storytype) {
+    author_id
+    title
+    content
+    date
+    contributors
+    is_deleted
+    }
+  }
+`;

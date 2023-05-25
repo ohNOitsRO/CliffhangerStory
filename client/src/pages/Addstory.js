@@ -19,6 +19,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CardColumn from '../components/CardColumn';
 import { FormControl, InputLabel, Input, FormHelperText, Select, MenuItem } from '@mui/material';
 import { styled } from '@mui/system';
+import { ADD_STORY } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
+
 
 //consolidate imports into destructured import//
 
