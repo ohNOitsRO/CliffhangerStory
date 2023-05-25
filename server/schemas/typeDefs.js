@@ -50,7 +50,7 @@ const typeDefs = gql`
     removeProfile: Profile
     removeStory(story_id: ID!): Profile
 
-    addStory(author_id: ID!, content: String!, title: String!, story_type: String): Story
+    addStory(content: String!, title: String!, story_type: String): Story
     addCont(main_story: ID!, main_author: String!, cont_name: String!, cont_author: ID!): Continuations
   }
 `;
