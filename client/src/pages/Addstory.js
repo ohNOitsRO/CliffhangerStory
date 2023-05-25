@@ -1,8 +1,8 @@
-import { useQuery, use_Mutations} from '@apollo/client';
+import { useQuery, use_Mutations } from '@apollo/client';
 
 // css framework for mui css underneath//
 import * as React from 'react';
-import{useState} from "react";
+import { useState } from "react";
 import TextareaAutosize from '@mui/base/TextareaAutosize';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -27,30 +27,30 @@ import { styled } from '@mui/system';
 import { QUERY_PROFILES } from '../utils/queries';
 
 const blue = {
-    100: '#DAECFF',
-    200: '#b6daff',
-    400: '#3399FF',
-    500: '#007FFF',
-    600: '#0072E5',
-    900: '#003A75',
-  };
+  100: '#DAECFF',
+  200: '#b6daff',
+  400: '#3399FF',
+  500: '#007FFF',
+  600: '#0072E5',
+  900: '#003A75',
+};
 
-  const grey = {
-    50: '#f6f8fa',
-    100: '#eaeef2',
-    200: '#d0d7de',
-    300: '#afb8c1',
-    400: '#8c959f',
-    500: '#6e7781',
-    600: '#57606a',
-    700: '#424a53',
-    800: '#32383f',
-    900: '#24292f',
-  };
+const grey = {
+  50: '#f6f8fa',
+  100: '#eaeef2',
+  200: '#d0d7de',
+  300: '#afb8c1',
+  400: '#8c959f',
+  500: '#6e7781',
+  600: '#57606a',
+  700: '#424a53',
+  800: '#32383f',
+  900: '#24292f',
+};
 
 
 const StyledTextarea = styled(TextareaAutosize)(
-    ({ theme }) => `
+  ({ theme }) => `
     width: 320px;
     font-family: IBM Plex Sans, sans-serif;
     font-size: 0.875rem;
@@ -77,95 +77,111 @@ const StyledTextarea = styled(TextareaAutosize)(
       outline: 0;
     }
   `,
-  );
+);
 
 const Addstory = (props) => {
 
-    const [addStory, setAddStory] = useState({ 
-      content: '', 
-      title: '', 
-      story_type:'Read Only',
-    });
-    // const [login, { error, data }] = useMutation(LOGIN_USER);
-  
-    // update state based on form input changes
-    const handleChange = (event) => {
-      const { name, value } = event.target;
-  
-      setAddStory({
-        ...addStory,
-        [name]: value,
-      });
+  const [addStory, setAddStory] = useState({
+    content: '',
+    title: '',
+    story_type: 'Read Only',
+  });
+  // const [login, { error, data }] = useMutation(LOGIN_USER);
 
-    };
-  
-    // submit form
-    const handleFormSubmit = async (event) => {
-      event.preventDefault();
-      console.log(addStory);
-      // try {
-      //   const { data } = await login({
-      //     variables: { ...addStory },
-      //   });
-  
-      // //   Auth.login(data.login.token);
-      // } catch (e) {
-      //   console.error(e);
-      // }
-  
-      // clear form values
-      setAddStory({
-        story: '',
-        // password: '',
-      });
-    };
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setAddStory({
+      ...addStory,
+      [name]: value,
+    });
+
+  };
+
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(addStory);
+    // try {
+    //   const { data } = await login({
+    //     variables: { ...addStory },
+    //   });
+
+    // //   Auth.login(data.login.token);
+    // } catch (e) {
+    //   console.error(e);
+    // }
+
+    // clear form values
+    setAddStory({
+      story: '',
+      // password: '',
+    });
+  };
 
   return (
 
+   
+    <FormControl style={{ marginTop: "250px", width: "800px" }}>
+  <Input
+    id="my-input"
+    className="form-input"
+    placeholder="Your Story Title"
+    name="title"
+    type="text"
+    value={addStory.title}
+    onChange={handleChange}
+    aria-describedby="my-helper-text"
+    style={{ width: "100%" }} // Set the width to 100% to occupy the full width of the form
+  />
 
-  <FormControl style={{marginTop: "250px"}}>
-  <Input id="my-input" className="form-input"
-                  placeholder="Your Story Title"
-                  name="title"
-                  type="text"
-                  value={addStory.title}
-                  onChange={handleChange}
-                  aria-describedby="my-helper-text" />
+<StyledTextarea
+    maxRows={4}
+    name="content"
+    value={addStory.content}
+    onChange={handleChange}
 
-  <StyledTextarea
-  maxRows={4}
-  name="content"
-  value={addStory.content}
-  onChange={handleChange}
+        // ------  FRONT END MAP FOR STORIES ----//
+
+  //       {addStory.map((content)) => {
+  //   return (
+  //     <option key={tech._id} value={tech.name}>
+  //       {tech.name}
+  //     </option>
+  //     )
+  // }
+  // }
+  
+  style={{ height: "600px", width: "800px" }} // Adjust the height value to your desired size
   aria-label="maximum height"
   placeholder="Maximum 4 rows"
+/>
 
-   />
-
-<Select
-    labelId="demo-simple-select-label"
-    id="demo-simple-select"
-    value={"Read Only"}
-    name="story_type"
-    label="Age"
-    onChange={handleChange}
-  >
-    <MenuItem value={"Open"}>Open</MenuItem>
-    <MenuItem value={"Read Only"}>Read Only</MenuItem>
-  </Select>
-
-
-   <Button variant="contained" 
-           sx={{
-              backgroundColor: "#ff4d00"
-            }}
-            onClick={handleFormSubmit}
-            >Save</Button>
+      <Select
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
+        value={"Read Only"}
+        name="story_type"
+        label="Age"
+        onChange={handleChange}
+      >
+        <MenuItem value={"Open"}>Open</MenuItem>
+        <MenuItem value={"Read Only"}>Read Only</MenuItem>
+      </Select>
 
 
-  </FormControl> 
+      <Button variant="contained"
+        sx={{
+          backgroundColor: "#ff4d00"
+        }}
+        onClick={handleFormSubmit}
+      >Save</Button>
 
-    
+
+    </FormControl>
+
+
   );
 };
 
