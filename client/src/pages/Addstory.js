@@ -90,6 +90,7 @@ const Addstory = (props) => {
     story_type: 'Read Only',
   });
   // const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [createStoryconnection, { error }] = useMutation(ADD_STORY);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -106,15 +107,15 @@ const Addstory = (props) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(addStory);
-    // try {
-    //   const { data } = await login({
-    //     variables: { ...addStory },
-    //   });
+    try {
+      const { data } = await createStoryconnection({
+        variables: { ...addStory },
+      });
 
-    // //   Auth.login(data.login.token);
-    // } catch (e) {
-    //   console.error(e);
-    // }
+    //   Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
 
     // clear form values
     setAddStory({
