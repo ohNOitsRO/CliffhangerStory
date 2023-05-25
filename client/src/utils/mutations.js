@@ -12,12 +12,13 @@ export const ADD_PROFILE = gql`
   }
 `;
 
-export const ADD_SKILL = gql`
-  mutation addSkill($profileId: ID!, $skill: String!) {
-    addSkill(profileId: $profileId, skill: $skill) {
-      _id
-      name
-      skills
+export const ADD_STORY = gql`
+  mutation addStory($content: ID!, $title: String!, $story_type: String!) {
+    addStory(content: $content, title: $title, story_type: $story_type) {
+      author_id
+      title
+      content
+      date
     }
   }
 `;

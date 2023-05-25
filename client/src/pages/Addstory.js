@@ -1,4 +1,4 @@
-import { useQuery } from '@apollo/client';
+import { useQuery, use_Mutations} from '@apollo/client';
 
 // css framework for mui css underneath//
 import * as React from 'react';
@@ -81,16 +81,20 @@ const StyledTextarea = styled(TextareaAutosize)(
 
 const Addstory = (props) => {
 
-    const [addStory, setAddStory] = useState({ story: ''});
+    const [addStory, setAddStory] = useState({ 
+      content: '', 
+      title: '', 
+      story_type:'Read Only',
+    });
     // const [login, { error, data }] = useMutation(LOGIN_USER);
   
     // update state based on form input changes
     const handleChange = (event) => {
-      const { story, value } = event.target;
+      const { name, value } = event.target;
   
       setAddStory({
         ...addStory,
-        [story]: value,
+        [name]: value,
       });
 
     };
@@ -116,35 +120,35 @@ const Addstory = (props) => {
       });
     };
 
-
-
-
   return (
 
 
   <FormControl style={{marginTop: "250px"}}>
   <Input id="my-input" className="form-input"
                   placeholder="Your Story Title"
-                  name="story"
-                  type="story"
-                  value={addStory.story}
+                  name="title"
+                  type="text"
+                  value={addStory.title}
                   onChange={handleChange}
                   aria-describedby="my-helper-text" />
 
   <StyledTextarea
   maxRows={4}
+  name="content"
+  value={addStory.content}
+  onChange={handleChange}
   aria-label="maximum height"
   placeholder="Maximum 4 rows"
-  defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-    ut labore et dolore magna aliqua."
+
    />
 
 <Select
     labelId="demo-simple-select-label"
     id="demo-simple-select"
     value={"Read Only"}
+    name="story_type"
     label="Age"
-    // onChange={handleChange}
+    onChange={handleChange}
   >
     <MenuItem value={"Open"}>Open</MenuItem>
     <MenuItem value={"Read Only"}>Read Only</MenuItem>
@@ -154,10 +158,12 @@ const Addstory = (props) => {
    <Button variant="contained" 
            sx={{
               backgroundColor: "#ff4d00"
-            }}>Save</Button>
+            }}
+            onClick={handleFormSubmit}
+            >Save</Button>
 
 
-  </FormControl>
+  </FormControl> 
 
     
   );

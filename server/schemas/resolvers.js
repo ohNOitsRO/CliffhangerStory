@@ -78,17 +78,11 @@ const resolvers = {
       return { token, profile };
     },
 
-    addStory: async (parent, { author_id, content, title, story_type }, context) => {
-      console.log(author_id, content, title, story_type);
+    addStory: async (parent, args, context) => {
+      
       if (context.user) {
-        return Story.create(
-          {
-            author_id,
-            content,
-            title,
-            story_type
-          }
-        );
+        args.author_id = context.user.id
+        return Story.create(args);
 
       }
     },
