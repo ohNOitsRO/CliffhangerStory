@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom"
 // css framework for mui css underneath//
 import * as React from 'react';
 import { useState } from "react";
-import TextareaAutosize from '@mui/base/TextareaAutosize';
+import {TextareaAutosize} from '@mui/base/TextareaAutosize';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
